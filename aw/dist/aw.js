@@ -1,17 +1,28 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var $ = require('jquery');
 var ajx = require('./components/ajax');
+var Quiz = require('./components/quiz');
 
-ajx.get('/api/result', function(data){
-  console.log('Lyckat API-anrop!', data);
-}, function(){
-  console.log('Misslyckat API-anrop!');
-}, false);
+$(document).ready(function() {
+    var quizConfig = {
+        domSelector: '.js-quiz_output',
+        questions: [{
 
-$(document).ready(function(){
-  console.log('jQuery loaded!');
+            question: 'Vilket av kodspråk jobbar konsumentteamet för tillfället INTE med?',
+            answers: ['Javascript', 'PHP', 'C-sharp']
+        }]
+    };
+    var quiz = new Quiz(quizConfig);
+    quiz.start();
+
+    // ajx.get('/api/result', function(data) {
+    //     console.log('Lyckat API-anrop!', data);
+    // }, function() {
+    //     console.log('Misslyckat API-anrop!');
+    // }, false);
 });
-},{"./components/ajax":2,"jquery":3}],2:[function(require,module,exports){
+
+},{"./components/ajax":2,"./components/quiz":3,"jquery":4}],2:[function(require,module,exports){
 'use strict';
 
 const ajax = {};
@@ -54,6 +65,37 @@ ajax.get = function (url, onSuccess, onError, forceSync) {
 module.exports = ajax;
 
 },{}],3:[function(require,module,exports){
+var Quiz = function(config) {
+    this.config = config;
+    this.outputElement = document.querySelector(config.domSelector);
+};
+
+Quiz.prototype.inform = function(msg) {
+    this.outputElement.innerHTML = msg;
+};
+
+
+Quiz.prototype.start = function() {
+    this.outputElement.innerHTML = '';
+    var count = 0;
+    this.config.questions.forEach(function(elmt, idx, arr) {
+        this.outputElement.innerHTML += '<h2>Fråga ' + (idx + 1) + '.</h2>';
+        this.outputElement.innerHTML += elmt.question;
+        elmt.answers.forEach(function(aElmt, aIdx, aArr) {
+            this.outputElement.innerHTML += '<div class="alternative"><input type="radio" name="altradio" id="alt_' + (aIdx + 1) + '" class="radio"/><label for="alt_' + (aIdx + 1) + '">' + aElmt + '</label></div>';
+        }.bind(this));
+
+
+    }.bind(this));
+
+
+};
+
+module.exports = function(config) {
+    return new Quiz(config);
+};
+
+},{}],4:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.0
  * http://jquery.com/

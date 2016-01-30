@@ -7,7 +7,6 @@ namespace Aw.Controllers
         public ActionResult Index()
         {
             ViewBag.Headline = "After Work tävling";
-            ViewBag.Message = "En simpel frågesport som testar era kunskaper.";
             return View();
         }
     }
