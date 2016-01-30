@@ -1,3 +1,4 @@
+var $ = require('jquery');
 var ajx = require('./components/ajax');
 
 ajx.get('/api/result', function(data){
@@ -5,3 +6,7 @@ ajx.get('/api/result', function(data){
 }, function(){
   console.log('Misslyckat API-anrop!');
 }, false);
+
+$(document).ready(function(){
+  console.log('jQuery loaded!');
+});
