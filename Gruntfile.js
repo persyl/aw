@@ -6,13 +6,20 @@ module.exports = function(grunt) {
     jshint: {
 		src: ['aw/Scripts/**']
 	},
+  browserify: {
+    dist: {
+      files: {
+        'aw/dist/aw.js': 'aw/Scripts/aw.js'
+      }
+    },
+  },
 	uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'aw/Scripts/*.js',
-        dest: 'aw/Scripts/dist/<%= pkg.name %>.min.js'
+        src: 'aw/dist/aw.js',
+        dest: 'aw/dist/<%= pkg.name %>.min.js'
       }
     },
 	watch: {
@@ -30,7 +37,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browserify');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['browserify', 'uglify']);
 };
