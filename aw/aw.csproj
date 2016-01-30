@@ -41,10 +41,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Olmo.Extras, Version=1.0.5804.36457, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Olmo.Extras.1.0.5804.36457\lib\net452\Olmo.Extras.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
