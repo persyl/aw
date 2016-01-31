@@ -96,7 +96,7 @@ Quiz.prototype.nextQuestion = function() {
         this.outputElement.innerHTML += '<div class="alternative"><input type="radio" name="altradio" id="alt_' + (aIdx + 1) + '" class="radio"/><label for="alt_' + (aIdx + 1) + '">' + alt + '</label></div>';
     }.bind(this));
 
-    this.outputElement.appendChild(document.createElement("br"));
+    this.outputElement.appendChild(createSpacer());
     var button;
     if (questionCounter < this.config.questions.length) {
         button = createButton('Visa fråga nr ' + (questionCounter + 1), function() {
@@ -106,8 +106,14 @@ Quiz.prototype.nextQuestion = function() {
             }
         }.bind(this));
     } else {
+        var nameInput = document.createElement('input');
+        nameInput.setAttribute('type', 'text');
+        nameInput.setAttribute('id', 'quiz_contestant');
+        nameInput.setAttribute('value', '');
+        nameInput.setAttribute('placeholder', 'Ditt namn?');
+        this.outputElement.appendChild(nameInput);
         button = createButton('KLAR', function() {
-            if (this.validate()) {
+            if (this.validate(true)) {
                 this.sendQuiz();
                 this.outputElement.innerHTML = '';
             }
@@ -116,13 +122,23 @@ Quiz.prototype.nextQuestion = function() {
     this.outputElement.appendChild(button);
 };
 
-Quiz.prototype.validate = function() {
+Quiz.prototype.validate = function(withNameField) {
+    var validateName = withNameField ? true:false;
+    var errorMsg = 'Du måste markera ett av svaren!';
     var allAlternatives = document.querySelectorAll('[id^="alt_"]');
     var result = Array.from(allAlternatives).some(function(elmt, idx, arr) {
         return elmt.checked;
     });
+    
+    if(validateName){
+      var nameField = document.querySelector('#quiz_contestant');
+      if(nameField.value.length < 1){
+        errorMsg = 'Vänligen fyll i ditt namn!';
+        result = false;
+      }
+    }
     if (!result) {
-        this.infoBoard.innerHTML = 'Du måste markera ett av svaren!';
+        this.infoBoard.innerHTML = errorMsg;
     }
     return result;
 };
@@ -147,6 +163,12 @@ var createButton = function(txt, clickAction) {
     };
     return button;
 }
+
+var createSpacer = function(appendTo){
+  var spacer = document.createElement("div");
+  spacer.setAttribute('class', 'spacer');
+  return spacer;
+};
 
 module.exports = function(config) {
     return new Quiz(config);
