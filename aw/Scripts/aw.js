@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var Quiz = require('./components/quiz');
-
+alert('Debug 0');
 $(document).ready(function() {
     alert('Debug 1');
     var quizConfig = {
