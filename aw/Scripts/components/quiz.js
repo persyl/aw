@@ -20,7 +20,6 @@ Quiz.prototype.start = function() {
     this.outputElement.innerHTML = '';
     this.createInfoBoard();
     this.nextQuestion();
-    document.querySelector('body').innerHTML += 'Debug 03';
 };
 
 Quiz.prototype.createInfoBoard = function() {

@@ -1,8 +1,8 @@
+document.querySelector('body').innerHTML += 'Debug 01';
+/*
 var $ = require('jquery');
 var Quiz = require('./components/quiz');
-document.querySelector('body').innerHTML += 'Debug 01';
 $(document).ready(function() {
-    document.querySelector('body').innerHTML += 'Debug 02';
     var quizConfig = {
         domSelector: '.js-quiz_output',
         questions: [{
@@ -16,3 +16,4 @@ $(document).ready(function() {
     var quiz = new Quiz(quizConfig);
     quiz.start();
 });
+*/
