@@ -1,6 +1,9 @@
 try {
 //var $ = require('jquery');
+document.querySelector('body').innerHTML += 'Före. ';
 var Quiz = require('./components/quiz');
+document.querySelector('body').innerHTML += 'Efter. ';
+
 //$(document).ready(function() {
     var quizConfig = {
         domSelector: '.js-quiz_output',
@@ -14,6 +17,7 @@ var Quiz = require('./components/quiz');
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
+    document.querySelector('body').innerHTML += 'Efter start. ';
 //});
 }catch(e){
   document.querySelector('body').innerHTML += 'Nåt gick fel: ' + e.message;
