@@ -6,13 +6,16 @@ $(document).ready(function() {
     var quizConfig = {
         domSelector: '.js-quiz_output',
         questions: [{
-
             question: 'Vilket av kodspråk jobbar konsumentteamet för tillfället INTE med?',
-            answers: ['Javascript', 'PHP', 'C-sharp']
+            alternatives: ['Javascript', 'PHP', 'C-sharp']
+        }, {
+            question: 'Vad kallas det när man bygger koden?',
+            alternatives: ['Komprimera', 'Kompilera', 'Kontrastera']
         }]
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
+
 
     // ajx.get('/api/result', function(data) {
     //     console.log('Lyckat API-anrop!', data);
