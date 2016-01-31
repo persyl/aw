@@ -1,7 +1,6 @@
 try {
 //var $ = require('jquery');
 var Quiz = require('./components/quiz');
-
 //$(document).ready(function() {
     var quizConfig = {
         domSelector: '.js-quiz_output',
@@ -17,5 +16,5 @@ var Quiz = require('./components/quiz');
     quiz.start();
 //});
 }catch(e){
-  document.querySeslector('body').innerHTML += 'Nåt gick fel: ' + e.message;
+  document.querySelector('body').innerHTML += 'Nåt gick fel: ' + e.message;
 }
