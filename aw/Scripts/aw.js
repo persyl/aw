@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var Quiz = require('./components/quiz');
+//var Quiz = require('./components/quiz');
 document.querySelector('body').innerHTML += 'Quiz required';
 
 /*
