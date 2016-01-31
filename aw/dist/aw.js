@@ -3,6 +3,7 @@ var $ = require('jquery');
 var Quiz = require('./components/quiz');
 
 $(document).ready(function() {
+    alert('Debug 1');
     var quizConfig = {
         domSelector: '.js-quiz_output',
         questions: [{
@@ -84,6 +85,7 @@ Quiz.prototype.start = function() {
     this.outputElement.innerHTML = '';
     this.createInfoBoard();
     this.nextQuestion();
+    alert('Debug 2');
 };
 
 Quiz.prototype.createInfoBoard = function() {
