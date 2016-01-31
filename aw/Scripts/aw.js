@@ -1,5 +1,4 @@
 var $ = require('jquery');
-var ajx = require('./components/ajax');
 var Quiz = require('./components/quiz');
 
 $(document).ready(function() {
@@ -15,11 +14,4 @@ $(document).ready(function() {
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
-
-
-    // ajx.get('/api/result', function(data) {
-    //     console.log('Lyckat API-anrop!', data);
-    // }, function() {
-    //     console.log('Misslyckat API-anrop!');
-    // }, false);
 });
