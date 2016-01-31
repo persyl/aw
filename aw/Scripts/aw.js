@@ -1,8 +1,8 @@
 var $ = require('jquery');
 var Quiz = require('./components/quiz');
-alert('Debug 0');
+document.querySelector('body').innerHTML += 'Debug 01';
 $(document).ready(function() {
-    alert('Debug 1');
+    document.querySelector('body').innerHTML += 'Debug 02';
     var quizConfig = {
         domSelector: '.js-quiz_output',
         questions: [{
