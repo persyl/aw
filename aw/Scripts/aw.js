@@ -1,8 +1,8 @@
 
 //var $ = require('jquery');
-document.querySelector('body').innerHTML += 'Före. ';
-//var Quiz = require('./components/quiz');
-
+document.querySelector('body').innerHTML += 'Före... ';
+var Quiz = require('./components/quiz');
+document.querySelector('body').innerHTML += 'Efter... ';
 //$(document).ready(function() {
     /*var quizConfig = {
         domSelector: '.js-quiz_output',
