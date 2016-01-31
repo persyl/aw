@@ -1,3 +1,4 @@
+try {
 //var $ = require('jquery');
 var Quiz = require('./components/quiz');
 
@@ -15,3 +16,6 @@ var Quiz = require('./components/quiz');
     var quiz = new Quiz(quizConfig);
     quiz.start();
 //});
+}catch(e){
+  document.querySeslector('body').innerHTML += 'Nåt gick fel: ' + e.message;
+}
