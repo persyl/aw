@@ -1,7 +1,7 @@
-var $ = require('jquery');
+//var $ = require('jquery');
 var Quiz = require('./components/quiz');
 
-$(document).ready(function() {
+//$(document).ready(function() {
     var quizConfig = {
         domSelector: '.js-quiz_output',
         questions: [{
@@ -14,4 +14,4 @@ $(document).ready(function() {
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
-});
+//});
