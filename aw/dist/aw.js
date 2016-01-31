@@ -1,6 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var $ = require('jquery');
-var ajx = require('./components/ajax');
 var Quiz = require('./components/quiz');
 
 $(document).ready(function() {
@@ -16,16 +15,9 @@ $(document).ready(function() {
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
-
-
-    // ajx.get('/api/result', function(data) {
-    //     console.log('Lyckat API-anrop!', data);
-    // }, function() {
-    //     console.log('Misslyckat API-anrop!');
-    // }, false);
 });
 
-},{"./components/ajax":2,"./components/quiz":3,"jquery":4}],2:[function(require,module,exports){
+},{"./components/quiz":3,"jquery":4}],2:[function(require,module,exports){
 'use strict';
 
 const ajax = {};
@@ -108,16 +100,31 @@ Quiz.prototype.nextQuestion = function() {
     var button;
     if (questionCounter < this.config.questions.length) {
         button = createButton('Visa fråga nr ' + (questionCounter + 1), function() {
-            this.infoBoard.innerHTML = 'Du har nu svarat på ' + questionCounter + 'st frågor';
-            this.nextQuestion();
+            if (this.validate()) {
+                this.infoBoard.innerHTML = 'Du har nu svarat på ' + questionCounter + 'st frågor';
+                this.nextQuestion();
+            }
         }.bind(this));
     } else {
         button = createButton('KLAR', function() {
-            this.sendQuiz();
-            this.outputElement.innerHTML = '';
+            if (this.validate()) {
+                this.sendQuiz();
+                this.outputElement.innerHTML = '';
+            }
         }.bind(this));
     }
     this.outputElement.appendChild(button);
+};
+
+Quiz.prototype.validate = function() {
+    var allAlternatives = document.querySelectorAll('[id^="alt_"]');
+    var result = Array.from(allAlternatives).some(function(elmt, idx, arr) {
+        return elmt.checked;
+    });
+    if (!result) {
+        this.infoBoard.innerHTML = 'Du måste markera ett av svaren!';
+    }
+    return result;
 };
 
 Quiz.prototype.sendQuiz = function() {

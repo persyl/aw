@@ -38,16 +38,31 @@ Quiz.prototype.nextQuestion = function() {
     var button;
     if (questionCounter < this.config.questions.length) {
         button = createButton('Visa fråga nr ' + (questionCounter + 1), function() {
-            this.infoBoard.innerHTML = 'Du har nu svarat på ' + questionCounter + 'st frågor';
-            this.nextQuestion();
+            if (this.validate()) {
+                this.infoBoard.innerHTML = 'Du har nu svarat på ' + questionCounter + 'st frågor';
+                this.nextQuestion();
+            }
         }.bind(this));
     } else {
         button = createButton('KLAR', function() {
-            this.sendQuiz();
-            this.outputElement.innerHTML = '';
+            if (this.validate()) {
+                this.sendQuiz();
+                this.outputElement.innerHTML = '';
+            }
         }.bind(this));
     }
     this.outputElement.appendChild(button);
+};
+
+Quiz.prototype.validate = function() {
+    var allAlternatives = document.querySelectorAll('[id^="alt_"]');
+    var result = Array.from(allAlternatives).some(function(elmt, idx, arr) {
+        return elmt.checked;
+    });
+    if (!result) {
+        this.infoBoard.innerHTML = 'Du måste markera ett av svaren!';
+    }
+    return result;
 };
 
 Quiz.prototype.sendQuiz = function() {
