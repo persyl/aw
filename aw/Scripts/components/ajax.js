@@ -2,11 +2,11 @@
 
 const ajax = {};
 
-ajax.get = function (url, onSuccess, onError, forceSync) {
+ajax.get = function (url, onSuccess, onError, requestMethod, data) {
   var xmlhttp;
 
-  if (forceSync === undefined) {
-    forceSync = false;
+  if (requestMethod === undefined) {
+    requestMethod = 'POST';
   }
 
   if (window.XMLHttpRequest) {
@@ -32,9 +32,11 @@ ajax.get = function (url, onSuccess, onError, forceSync) {
     }
   };
 
-  xmlhttp.open('GET', url, !forceSync);
+  xmlhttp.open(requestMethod, url, true);
+  xmlhttp.setRequestHeader('Content-type','application/json; charset=utf-8');
+  //xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.withCredentials = true;
-  xmlhttp.send();
+  xmlhttp.send(data);
 };
 
 module.exports = ajax;

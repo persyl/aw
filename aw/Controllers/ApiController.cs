@@ -5,11 +5,10 @@ namespace Aw.Controllers
 {
     public class ApiController:Controller
     {
-        [HttpGet]
-        public JsonResult Result()
+        [HttpPost]
+        public JsonResult Result(QuizAnswer data)
         {
-            var res = new QuizResult() { Contestant = "Per Lundkvist" };
-            return Json(res, JsonRequestBehavior.AllowGet);
+            return Json(new { ServerResponse = $"Tack {data.Contestant}, dina svar är nu registrerade" }, JsonRequestBehavior.DenyGet);
         }
     }
 }
