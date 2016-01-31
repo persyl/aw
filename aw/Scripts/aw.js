@@ -1,6 +1,7 @@
 document.querySelector('body').innerHTML += 'Debug 01';
-/*
 var $ = require('jquery');
+document.querySelector('body').innerHTML += 'Debug 02';
+/*
 var Quiz = require('./components/quiz');
 $(document).ready(function() {
     var quizConfig = {
