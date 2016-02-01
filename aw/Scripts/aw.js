@@ -1,10 +1,8 @@
 
 //var $ = require('jquery');
-document.querySelector('body').innerHTML += 'Före... ';
 var Quiz = require('./components/quiz');
-document.querySelector('body').innerHTML += 'Efter... ';
 //$(document).ready(function() {
-    /*var quizConfig = {
+    var quizConfig = {
         domSelector: '.js-quiz_output',
         questions: [{
             question: 'Vilket av kodspråk jobbar konsumentteamet för tillfället INTE med?',
@@ -15,5 +13,5 @@ document.querySelector('body').innerHTML += 'Efter... ';
         }]
     };
     var quiz = new Quiz(quizConfig);
-    quiz.start();*/
+    quiz.start();
 //});
