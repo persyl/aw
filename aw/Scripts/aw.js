@@ -1,6 +1,7 @@
 
 //var $ = require('jquery');
 var Quiz = require('./components/quiz');
+
 //$(document).ready(function() {
     var quizConfig = {
         domSelector: '.js-quiz_output',
@@ -14,4 +15,6 @@ var Quiz = require('./components/quiz');
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
+    var t = "babel"
+    console.log(`Testar ${t}`);
 //});

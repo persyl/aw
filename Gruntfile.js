@@ -6,15 +6,24 @@ module.exports = function(grunt) {
         jshint: {
             src: ['aw/Scripts/**']
         },
+        babel: {
+            options: {
+                sourceMap: true,
+                presets: ['es2015']
+            },
+            dist: {
+                files: {
+                    'aw/Scripts/aw-babeled.js': 'aw/Scripts/aw.js'
+                }
+            }
+        },
         browserify: {
             dist: {
-                options: {
-                    transform: [
-                        ["babelify"]
-                    ]
-                },
+                /*options: {
+                    transform: ["babel"]
+                },*/
                 files: {
-                    'aw/dist/aw.js': 'aw/Scripts/aw.js'
+                    'aw/dist/aw.js': 'aw/Scripts/aw-babeled.js'
                 }
             },
         },
@@ -43,7 +52,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-babel');
 
     // Default task(s).
-    grunt.registerTask('default', ['browserify', 'uglify']);
+    grunt.registerTask('default', ['babel', 'browserify', 'uglify']);
 };
