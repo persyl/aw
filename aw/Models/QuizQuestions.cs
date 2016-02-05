@@ -7,10 +7,6 @@ namespace Aw.Models
 {
     public class QuizQuestions
     {
-        public QuizQuestions()
-        {
-            questions = new List<QuizQuestion>();
-        }
         public List<QuizQuestion> questions { get; set; }
     }
 
@@ -18,5 +14,7 @@ namespace Aw.Models
     {
         public string question { get; set; }
         public List<string> alternatives { get; set; }
+
+        public int correctAlternative { get; set; }
     }
 }

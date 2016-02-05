@@ -11,30 +11,47 @@ namespace Aw.Controllers
 {
     public class ResultController : Controller
     {
-        // GET: Result
+        // GET: ResultViewModel
         public ActionResult Index()
         {
-            var currentAnswers = new StringBuilder();
             IDictionaryEnumerator enumerator = HttpRuntime.Cache.GetEnumerator();
+            var viewModel = new ResultViewModel();
+            viewModel.Results=new List<Result>();
             while (enumerator.MoveNext())
             {
                 if (enumerator.Key.ToString().StartsWith("Deltagare"))
                 {
-                    currentAnswers.Append(string.Format("<h2>{0}</h2>", enumerator.Key));
+                    var correctAnswers = 0;
+                    var contestant = new Result();
+                    contestant.Answers = new Dictionary<string, string>();
+                    contestant.Contestant = enumerator.Key.ToString();
+                    
                     var quizAnswer = enumerator.Value as QuizAnswer;
+                    var answerCount = 0;
                     if (quizAnswer != null && quizAnswer.Answers.Any())
                     {
-                        currentAnswers.Append("<ul>");
                         foreach (var answer in quizAnswer.Answers)
                         {
-                            currentAnswers.Append(string.Format("<li>{0}</li>", answer));
+                            var correctAltIdx = Utils.Quiz.questions[answerCount].correctAlternative;
+                            string image;
+                            if (Utils.Quiz.questions[answerCount].alternatives[correctAltIdx] == answer)
+                            {
+                                correctAnswers++;
+                                image = "correct.png";
+                            }
+                            else
+                            {
+                                image = "wrong.png";
+                            }
+                            answerCount++;
+                            contestant.Answers.Add(answer, image);
                         }
-                        currentAnswers.Append("</ul>");
+                        contestant.Total = correctAnswers;
+                        viewModel.Results.Add(contestant);
                     }
                 }
             }
-            ViewBag.Answers = currentAnswers.ToString();
-            return View();
+            return View(viewModel);
         }
     }
 }

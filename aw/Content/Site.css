@@ -32,6 +32,12 @@ h1 {
     display: block;
 }
 
+.quiz-result {
+    display: inline-block;
+    border: 1px dotted white;
+    padding: 6px 24px;
+    margin: 12px;    
+}
 
 .quiz_btn {
     display: block;
@@ -48,6 +54,10 @@ h1 {
         background: #4DCB6D;
     }
 
+.img-alternative {
+    width: 20px;
+    margin-left: 10px;    
+}
 
 input[type=text] {
     font-weight: bold;

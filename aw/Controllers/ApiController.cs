@@ -20,20 +20,7 @@ namespace Aw.Controllers
         [HttpPost]
         public JsonResult Questions()
         {
-            var quiz = new QuizQuestions();
-            quiz.questions.Add(new QuizQuestion()
-            {
-                question = "Testfråga 1",
-                alternatives = new List<string>() {"Testsvar 1", "Testsvar 2", "Testsvar 3"}
-            });
-
-            quiz.questions.Add(new QuizQuestion()
-            {
-                question = "Testfråga 2",
-                alternatives = new List<string>() { "Testsvar 2-1", "Testsvar 2-2", "Testsvar 2-3" }
-            });
-
-            return Json(quiz, JsonRequestBehavior.DenyGet);
+            return Json(Utils.Quiz, JsonRequestBehavior.DenyGet);
         }
     }
 }
