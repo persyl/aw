@@ -11,7 +11,6 @@ Quiz.prototype.inform = function(msg) {
     this.outputElement.innerHTML = msg;
 };
 
-
 Quiz.prototype.start = function() {
     questionCounter = 0;
     this.savedData = {

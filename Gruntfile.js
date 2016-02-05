@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['aw/Scripts/**/*.js'],
-                tasks: ['jshint'],
+                tasks: ['default'],
                 options: {
                     spawn: false,
                 },
@@ -62,6 +62,6 @@ module.exports = function(grunt) {
 
 
     // Default task(s).
-    grunt.registerTask('watch', ['watch']);
     grunt.registerTask('default', ['jshint', 'browserify', 'babel', 'uglify']);
+    grunt.registerTask('watch', ['watch']);
 };
