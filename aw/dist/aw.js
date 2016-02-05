@@ -13,12 +13,9 @@
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
-
-        //var $ = require('jquery');
         var Quiz = require('./components/quiz');
 
-        //$(document).ready(function() {
-        var quizConfig = {
+        /*var quizConfig = {
             domSelector: '.js-quiz_output',
             questions: [{
                 question: 'Fråga nummer 1 test?',
@@ -28,10 +25,9 @@
                 alternatives: ['Testsvar 1', 'Testsvar 2', 'Testsvar 3']
             }]
         };
-        var quiz = new Quiz(quizConfig);
+        */
+        var quiz = new Quiz('.js-quiz_output');
         quiz.start();
-
-        //});
     }, { "./components/quiz": 3 }], 2: [function (require, module, exports) {
         'use strict';
 
@@ -81,9 +77,9 @@
         var ajx = require('./ajax');
 
         var questionCounter;
-        var Quiz = function Quiz(config) {
-            this.config = config;
-            this.outputElement = document.querySelector(config.domSelector);
+        var Quiz = function Quiz(domSelector) {
+            this.questions = {};
+            this.outputElement = document.querySelector(domSelector);
         };
 
         Quiz.prototype.inform = function (msg) {
@@ -91,6 +87,7 @@
         };
 
         Quiz.prototype.start = function () {
+            this.getQuestions();
             questionCounter = 0;
             this.savedData = {
                 Contestant: '',
@@ -98,7 +95,17 @@
             };
             this.outputElement.innerHTML = '';
             this.createInfoBoard();
-            this.nextQuestion();
+        };
+
+        Quiz.prototype.getQuestions = function () {
+            ajx.get('/api/questions', function (data) {
+                var result = JSON.parse(data);
+                this.questions = result.questions;
+                console.log('Frågor hämtade: ', this.questions);
+                this.nextQuestion();
+            }.bind(this), function () {
+                console.log('Kunde ej hämta frågorna.');
+            }, 'POST', '');
         };
 
         Quiz.prototype.createInfoBoard = function () {
@@ -109,7 +116,8 @@
 
         Quiz.prototype.nextQuestion = function () {
             questionCounter++;
-            var elmt = this.config.questions[questionCounter - 1];
+            console.log('this.questions: ', this.questions);
+            var elmt = this.questions[questionCounter - 1];
             this.outputElement.innerHTML = '';
             this.outputElement.innerHTML += '<h2>Fråga ' + questionCounter + '.</h2>';
             this.outputElement.innerHTML += elmt.question;
@@ -119,7 +127,7 @@
 
             this.outputElement.appendChild(createSpacer());
             var button;
-            if (questionCounter < this.config.questions.length) {
+            if (questionCounter < this.questions.length) {
                 button = createButton('Visa fråga nr ' + (questionCounter + 1), function () {
                     window.scrollTo(0, 0);
                     if (this.validate()) {

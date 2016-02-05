@@ -2,9 +2,9 @@
 var ajx = require('./ajax');
 
 var questionCounter;
-var Quiz = function(config) {
-    this.config = config;
-    this.outputElement = document.querySelector(config.domSelector);
+var Quiz = function(domSelector) {
+    this.questions = {};
+    this.outputElement = document.querySelector(domSelector);
 };
 
 Quiz.prototype.inform = function(msg) {
@@ -12,6 +12,7 @@ Quiz.prototype.inform = function(msg) {
 };
 
 Quiz.prototype.start = function() {
+    this.getQuestions();
     questionCounter = 0;
     this.savedData = {
         Contestant: '',
@@ -19,7 +20,19 @@ Quiz.prototype.start = function() {
     };
     this.outputElement.innerHTML = '';
     this.createInfoBoard();
-    this.nextQuestion();
+};
+
+Quiz.prototype.getQuestions = function() {
+    ajx.get('/api/questions', function(data) {
+            var result = JSON.parse(data);
+            this.questions = result.questions;
+            this.nextQuestion();
+        }.bind(this), function() {
+            console.log('Kunde ej hämta frågorna.');
+        },
+        'POST',
+        ''
+    );
 };
 
 Quiz.prototype.createInfoBoard = function() {
@@ -30,7 +43,7 @@ Quiz.prototype.createInfoBoard = function() {
 
 Quiz.prototype.nextQuestion = function() {
     questionCounter++;
-    var elmt = this.config.questions[(questionCounter - 1)];
+    var elmt = this.questions[(questionCounter - 1)];
     this.outputElement.innerHTML = '';
     this.outputElement.innerHTML += '<h2>Fråga ' + questionCounter + '.</h2>';
     this.outputElement.innerHTML += elmt.question;
@@ -40,7 +53,7 @@ Quiz.prototype.nextQuestion = function() {
 
     this.outputElement.appendChild(createSpacer());
     var button;
-    if (questionCounter < this.config.questions.length) {
+    if (questionCounter < this.questions.length) {
         button = createButton('Visa fråga nr ' + (questionCounter + 1), function() {
             window.scrollTo(0, 0);
             if (this.validate()) {
