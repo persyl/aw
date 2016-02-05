@@ -1,5 +1,13 @@
 module.exports = function(grunt) {
 
+
+    // Load the plugin that provides the "uglify" task.
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-browserify');
+
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -9,21 +17,21 @@ module.exports = function(grunt) {
         babel: {
             options: {
                 sourceMap: true,
-                presets: ['es2015']
+                presets: ['es2015'],
             },
             dist: {
                 files: {
-                    'aw/Scripts/aw-babeled.js': 'aw/Scripts/aw.js'
+                    'aw/dist/aw.js': 'aw/dist/aw.js'
                 }
             }
         },
         browserify: {
             dist: {
                 /*options: {
-                    transform: ["babel"]
+                    transform: ['dobabel']
                 },*/
                 files: {
-                    'aw/dist/aw.js': 'aw/Scripts/aw-babeled.js'
+                    'aw/dist/aw.js': 'aw/Scripts/aw.js'
                 }
             },
         },
@@ -47,13 +55,8 @@ module.exports = function(grunt) {
         }
     });
 
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-browserify');
-    grunt.loadNpmTasks('grunt-babel');
 
     // Default task(s).
-    grunt.registerTask('default', ['babel', 'browserify', 'uglify']);
+    //grunt.registerTask('dobabel', ['babel']);
+    grunt.registerTask('default', ['browserify', 'babel', 'uglify']);
 };

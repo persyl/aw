@@ -7,13 +7,8 @@ body {
     font-weight: 400;
     font-size: 16px;
     min-height: 800px;
-    background-repeat: no-repeat;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefcea+0,f1da36+100;Gold+3D */
-    background: rgb(254,252,234); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(254,252,234,1) 0%, rgba(241,218,54,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 ); /* IE6-9 */
+    background-color: #a7100c;
+    color: #fff;
 }
 
 h1 {
@@ -27,13 +22,6 @@ h1 {
     }
 }
 
-body {
-    font-family: sans-serif;
-    font-weight: normal;
-    margin: 10px;
-    color: #333;
-    background-color: #eee;
-}
 
 .spacer {
     min-height: 24px;
@@ -48,11 +36,11 @@ body {
 .quiz_btn {
     display: block;
     line-height: 41px;
-    border: 2px solid gray;
+    border: 2px solid #fff;
     max-width: 150px;
     text-align: center;
     text-decoration: none;
-    color: #333;
+    color: #fff;
     border-radius: 8px;
 }
 

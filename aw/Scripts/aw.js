@@ -6,15 +6,15 @@ var Quiz = require('./components/quiz');
     var quizConfig = {
         domSelector: '.js-quiz_output',
         questions: [{
-            question: 'Vilket av kodspråk jobbar konsumentteamet för tillfället INTE med?',
-            alternatives: ['Javascript', 'PHP', 'C-sharp']
+            question: 'Fråga nummer 1 test?',
+            alternatives: ['Testsvar 1', 'Testsvar 2', 'Testsvar 3']
         }, {
-            question: 'Vad kallas det när man bygger koden?',
-            alternatives: ['Komprimera', 'Kompilera', 'Kontrastera']
+            question: 'Testfråga nummer 2?',
+            alternatives: ['Testsvar 1', 'Testsvar 2', 'Testsvar 3']
         }]
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
-    var t = "babel"
+    var t = "babeltest"
     console.log(`Testar ${t}`);
 //});
