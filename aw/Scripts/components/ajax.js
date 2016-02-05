@@ -14,7 +14,7 @@ ajax.get = function (url, onSuccess, onError, requestMethod, data) {
     xmlhttp = new XMLHttpRequest();
   } else {
     // code for IE6, IE5
-    xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+    xmlhttp = new window.ActiveXObject('Microsoft.XMLHTTP');
   }
 
   xmlhttp.onreadystatechange = function () {

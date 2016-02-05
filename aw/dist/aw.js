@@ -30,8 +30,7 @@
         };
         var quiz = new Quiz(quizConfig);
         quiz.start();
-        var t = "babeltest";
-        console.log("Testar " + t);
+
         //});
     }, { "./components/quiz": 3 }], 2: [function (require, module, exports) {
         'use strict';
@@ -50,7 +49,7 @@
                 xmlhttp = new XMLHttpRequest();
             } else {
                 // code for IE6, IE5
-                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+                xmlhttp = new window.ActiveXObject('Microsoft.XMLHTTP');
             }
 
             xmlhttp.onreadystatechange = function () {
@@ -77,6 +76,8 @@
 
         module.exports = ajax;
     }, {}], 3: [function (require, module, exports) {
+        "use strict";
+
         var ajx = require('./ajax');
 
         var questionCounter;

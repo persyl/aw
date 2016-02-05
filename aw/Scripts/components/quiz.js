@@ -1,3 +1,4 @@
+"use strict";
 var ajx = require('./ajax');
 
 var questionCounter;
@@ -114,7 +115,7 @@ var createButton = function(txt, clickAction) {
         clickAction();
     };
     return button;
-}
+};
 
 var createSpacer = function(appendTo) {
     var spacer = document.createElement("div");

@@ -15,6 +15,5 @@ var Quiz = require('./components/quiz');
     };
     var quiz = new Quiz(quizConfig);
     quiz.start();
-    var t = "babeltest"
-    console.log(`Testar ${t}`);
+    
 //});

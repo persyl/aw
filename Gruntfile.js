@@ -12,6 +12,11 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
+            options: {
+                browser: true,
+                esnext: true,
+                node: true,
+            },
             src: ['aw/Scripts/**']
         },
         babel: {
@@ -46,7 +51,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['**/*.js'],
+                files: ['aw/Scripts/**/*.js'],
                 tasks: ['jshint'],
                 options: {
                     spawn: false,
@@ -57,6 +62,6 @@ module.exports = function(grunt) {
 
 
     // Default task(s).
-    //grunt.registerTask('dobabel', ['babel']);
-    grunt.registerTask('default', ['browserify', 'babel', 'uglify']);
+    grunt.registerTask('watch', ['watch']);
+    grunt.registerTask('default', ['jshint', 'browserify', 'babel', 'uglify']);
 };
