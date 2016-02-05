@@ -96,9 +96,9 @@ Quiz.prototype.sendQuiz = function() {
             var parsedData = JSON.parse(data);
             //console.log('Lyckat API-anrop!', data);
             this.infoBoard.innerHTML = parsedData.ServerResponse;
-        }, function() {
+        }.bind(this), function() {
             this.infoBoard.innerHTML = 'Något gick tyvärr fel! Dina svar är INTE skickade.';
-        },
+        }.bind(this),
         'POST',
         JSON.stringify(this.savedData)
     );

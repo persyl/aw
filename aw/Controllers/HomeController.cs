@@ -6,7 +6,7 @@ namespace Aw.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Headline = "ABC 123 TEST";
+            ViewBag.Headline = "Frågesport";
             return View();
         }
     }

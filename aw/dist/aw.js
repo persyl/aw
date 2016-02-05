@@ -175,9 +175,9 @@
                 var parsedData = JSON.parse(data);
                 //console.log('Lyckat API-anrop!', data);
                 this.infoBoard.innerHTML = parsedData.ServerResponse;
-            }, function () {
+            }.bind(this), function () {
                 this.infoBoard.innerHTML = 'Något gick tyvärr fel! Dina svar är INTE skickade.';
-            }, 'POST', JSON.stringify(this.savedData));
+            }.bind(this), 'POST', JSON.stringify(this.savedData));
         };
 
         var createButton = function createButton(txt, clickAction) {
