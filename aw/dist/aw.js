@@ -120,6 +120,7 @@
             var button;
             if (questionCounter < this.config.questions.length) {
                 button = createButton('Visa fråga nr ' + (questionCounter + 1), function () {
+                    window.scrollTo(0, 0);
                     if (this.validate()) {
                         this.savedData.Answers.push(document.querySelector('input[type="radio"][name="altradio"]:checked').value);
                         this.infoBoard.innerHTML = 'Du har nu svarat på ' + questionCounter + 'st frågor';
@@ -134,6 +135,7 @@
                 nameInput.setAttribute('placeholder', 'Ditt namn?');
                 this.outputElement.appendChild(nameInput);
                 button = createButton('KLAR', function () {
+                    window.scrollTo(0, 0);
                     if (this.validate(true)) {
                         this.savedData.Answers.push(document.querySelector('input[type="radio"][name="altradio"]:checked').value);
                         this.savedData.Contestant = document.querySelector('#quiz_contestant').value;
