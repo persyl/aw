@@ -16,9 +16,7 @@ namespace Aw.Controllers
         {
             IDictionaryEnumerator enumerator = HttpRuntime.Cache.GetEnumerator();
             var viewModel = new ResultViewModel();
-            bool showResults;
-            bool.TryParse(HttpRuntime.Cache["showResults"]?.ToString(), out showResults);
-            viewModel.ShowResults = showResults;
+            viewModel.ShowResults = HttpRuntime.Cache["showResults"] != null ? bool.Parse(HttpRuntime.Cache["showResults"].ToString()) : false;
             viewModel.Results = new List<Result>();
             while (enumerator.MoveNext())
             {
