@@ -10,16 +10,22 @@
         <h2>@res.Contestant</h2>
         @if (res.Answers.Any())
         {
-        <ul>
-            @foreach (var ans in res.Answers)
-            {
-                <li>@ans.Key<img src="/content/images/@ans.Value" class="img-alternative" /></li>
-            }
-            @if (res.Total == Utils.Quiz.questions.Count)
-            {
-                <li><b>ALLA RÄTT!</b></li>
-            }
-        </ul>
+            <ul>
+                @foreach (var ans in res.Answers)
+                {
+                    <li>
+                        @ans.Key
+                        @if (Model.ShowResults)
+                        {
+                            <img src="/content/images/@ans.Value" class="img-alternative" />
+                        }
+                    </li>
+                }
+                @if (res.Total == Utils.Quiz.questions.Count)
+                {
+                    <li><b>ALLA RÄTT!</b></li>
+                }
+            </ul>
         }
     </div>
 }

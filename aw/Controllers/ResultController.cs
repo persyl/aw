@@ -16,6 +16,9 @@ namespace Aw.Controllers
         {
             IDictionaryEnumerator enumerator = HttpRuntime.Cache.GetEnumerator();
             var viewModel = new ResultViewModel();
+            bool showResults;
+            bool.TryParse(HttpRuntime.Cache["showResults"]?.ToString(), out showResults);
+            viewModel.ShowResults = showResults;
             viewModel.Results=new List<Result>();
             while (enumerator.MoveNext())
             {
@@ -52,6 +55,18 @@ namespace Aw.Controllers
                 }
             }
             return View(viewModel);
+        }
+
+        public ActionResult On()
+        {
+            HttpRuntime.Cache["showResults"] = true;
+            return Content("showResults = ON");
+        }
+
+        public ActionResult Off()
+        {
+            HttpRuntime.Cache["showResults"] = false;
+            return Content("showResults = OFF");
         }
     }
 }

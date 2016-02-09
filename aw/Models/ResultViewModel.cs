@@ -7,6 +7,7 @@ namespace Aw.Models
 {
     public class ResultViewModel
     {
+        public bool ShowResults { get; set; }
         public List<Result> Results { get; set; }
     }
 
