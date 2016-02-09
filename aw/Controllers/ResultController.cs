@@ -19,7 +19,7 @@ namespace Aw.Controllers
             bool showResults;
             bool.TryParse(HttpRuntime.Cache["showResults"]?.ToString(), out showResults);
             viewModel.ShowResults = showResults;
-            viewModel.Results=new List<Result>();
+            viewModel.Results = new List<Result>();
             while (enumerator.MoveNext())
             {
                 if (enumerator.Key.ToString().StartsWith("Deltagare"))
@@ -28,7 +28,7 @@ namespace Aw.Controllers
                     var contestant = new Result();
                     contestant.Answers = new Dictionary<string, string>();
                     contestant.Contestant = enumerator.Key.ToString();
-                    
+
                     var quizAnswer = enumerator.Value as QuizAnswer;
                     var answerCount = 0;
                     if (quizAnswer != null && quizAnswer.Answers.Any())
