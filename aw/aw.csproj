@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\correct.png" />
+    <Content Include="Content\images\per.jpg" />
     <Content Include="Content\images\wrong.png" />
     <Content Include="dist\aw.js" />
     <Content Include="dist\aw.min.js" />

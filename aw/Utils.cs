@@ -77,6 +77,12 @@ namespace Aw
                     question = "Vilken TV-serie kommer denna låt ifrån?",
                     alternatives = new List<string>() {"Dynasty", "Falcon Crest", "Dallas"},
                     correctAlternative = 2
+                },
+                new QuizQuestion()
+                {
+                    question = "Vad heter artisten?",
+                    alternatives = new List<string>() {"Pernilla Wahlgren", "Anna Book", "Gigi Hamilton"},
+                    correctAlternative = 1
                 }
             }
         };

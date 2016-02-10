@@ -15,17 +15,6 @@
 })({ 1: [function (require, module, exports) {
         var Quiz = require('./components/quiz');
 
-        /*var quizConfig = {
-            domSelector: '.js-quiz_output',
-            questions: [{
-                question: 'Fråga nummer 1 test?',
-                alternatives: ['Testsvar 1', 'Testsvar 2', 'Testsvar 3']
-            }, {
-                question: 'Testfråga nummer 2?',
-                alternatives: ['Testsvar 1', 'Testsvar 2', 'Testsvar 3']
-            }]
-        };
-        */
         var quiz = new Quiz('.js-quiz_output');
         quiz.start();
     }, { "./components/quiz": 3 }], 2: [function (require, module, exports) {
@@ -101,7 +90,6 @@
             ajx.get('/api/questions', function (data) {
                 var result = JSON.parse(data);
                 this.questions = result.questions;
-                console.log('Frågor hämtade: ', this.questions);
                 this.nextQuestion();
             }.bind(this), function () {
                 console.log('Kunde ej hämta frågorna.');
@@ -116,7 +104,6 @@
 
         Quiz.prototype.nextQuestion = function () {
             questionCounter++;
-            console.log('this.questions: ', this.questions);
             var elmt = this.questions[questionCounter - 1];
             this.outputElement.innerHTML = '';
             this.outputElement.innerHTML += '<h2>Fråga ' + questionCounter + '.</h2>';
@@ -148,6 +135,7 @@
                     if (this.validate(true)) {
                         this.savedData.Answers.push(document.querySelector('input[type="radio"][name="altradio"]:checked').value);
                         this.savedData.Contestant = document.querySelector('#quiz_contestant').value;
+                        this.outputElement.innerHTML = 'Vänligen vänta...';
                         this.sendQuiz();
                         this.outputElement.innerHTML = '';
                     }

@@ -74,6 +74,7 @@ Quiz.prototype.nextQuestion = function() {
             if (this.validate(true)) {
                 this.savedData.Answers.push(document.querySelector('input[type="radio"][name="altradio"]:checked').value);
                 this.savedData.Contestant = document.querySelector('#quiz_contestant').value;
+                this.outputElement.innerHTML = 'Vänligen vänta...';
                 this.sendQuiz();
                 this.outputElement.innerHTML = '';
             }
