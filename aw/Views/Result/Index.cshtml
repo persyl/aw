@@ -1,31 +1,38 @@
 ﻿@model Aw.Models.ResultViewModel
 @{
     ViewBag.Title = "Frågesport";
+
+    var results = Model.ShowResults ? Model.Results.OrderByDescending(r => r.Total).ToList() : Model.Results;
 }
 
 <h1>Inkomna svar</h1>
-@foreach (var res in Model.Results)
+@foreach (var res in results)
 {
     <div class="quiz-result">
         <h2>@res.Contestant</h2>
         @if (res.Answers.Any())
         {
-            <ul>
-                @foreach (var ans in res.Answers)
-                {
-                    <li>
-                        @ans.Key
-                        @if (Model.ShowResults)
-                        {
-                            <img src="/content/images/@ans.Value" class="img-alternative" />
-                        }
-                    </li>
-                }
-                @if (res.Total == Utils.Quiz.questions.Count)
-                {
-                    <li><b>ALLA RÄTT!</b></li>
-                }
-            </ul>
+        <ul>
+            @if (Model.ShowResults)
+            {
+                <li><strong>TOTAL ANTAL RÄTT: @res.Total</strong></li>
+            }
+
+            @foreach (var ans in res.Answers)
+            {
+                <li>
+                    @ans.Key
+                    @if (Model.ShowResults)
+                    {
+                        <img src="/content/images/@ans.Value" class="img-alternative" />
+                    }
+                </li>
+            }
+            @if (res.Total == Utils.Quiz.questions.Count)
+            {
+                <li><b>ALLA RÄTT!</b></li>
+            }
+        </ul>
         }
     </div>
 }

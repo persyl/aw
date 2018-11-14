@@ -107,7 +107,7 @@
             var elmt = this.questions[questionCounter - 1];
             this.outputElement.innerHTML = '';
             this.outputElement.innerHTML += '<h2>Fråga ' + questionCounter + '.</h2>';
-            this.outputElement.innerHTML += elmt.question;
+            this.outputElement.innerHTML += '<p>' + elmt.question + '</p>';
             elmt.alternatives.forEach(function (alt, aIdx, aArr) {
                 this.outputElement.innerHTML += '<div class="alternative"><input type="radio" name="altradio" id="alt_' + (aIdx + 1) + '" class="radio" value="' + alt + '"/><label for="alt_' + (aIdx + 1) + '">' + alt + '</label></div>';
             }.bind(this));

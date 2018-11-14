@@ -2,16 +2,26 @@
     clear: both;
 }
 
-body {
+h1 {
+    margin: 0;
+}
+
+h2 {
+    color: #a7100c;
+}
+
+p {
     font-family: 'Raleway', sans-serif; /*www.google.com/fonts*/
-    font-weight: 400;
-    font-size: 16px;
+    color: #111;
+    font-weight: bold;
+}
+
+body {
+    padding: 10px;
+    font-family: 'Raleway', sans-serif; /*www.google.com/fonts*/
     min-height: 800px;
-    background-color: #a7100c;
-    /*background: url('images/per.jpg') #a7100c;
-    background-repeat: no-repeat;
-    background-position-x: right;*/
-    color: #fff;
+    background-color: #f7eae4;
+    color: #111;
 }
 .selfie {
     opacity: 0.2;
@@ -38,7 +48,7 @@ h1 {
 }
 
 .alternative {
-    clear: both;
+    /*clear: both;*/
     display: block;
 }
 
@@ -52,11 +62,11 @@ h1 {
 .quiz_btn {
     display: block;
     line-height: 41px;
-    border: 2px solid #fff;
+    border: 2px solid #a7100c;
     max-width: 150px;
     text-align: center;
     text-decoration: none;
-    color: #fff;
+    color: #111;
     border-radius: 8px;
 }
 
@@ -84,10 +94,11 @@ input[type=text] {
 }
 
 label {
-    min-width: 200px;
-    padding-right: 14px;
+    width: 100%;
+    /*padding-right: 14px;*/
     border-radius: 3px;
-    border: 1px solid #D1D3D4;
+    border: 2px solid #a7100c;
+    font-weight: bold;
 }
 
 /* hide input */
@@ -117,7 +128,7 @@ input.radio:empty {
             left: 0;
             content: '';
             width: 2.5em;
-            background: #D1D3D4;
+            background: #f1f1f1;
             border-radius: 3px 0 0 3px;
         }
 
