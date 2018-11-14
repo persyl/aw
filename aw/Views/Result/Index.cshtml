@@ -1,7 +1,5 @@
 ﻿@model Aw.Models.ResultViewModel
 @{
-    ViewBag.Title = "Frågesport";
-
     var results = Model.ShowResults ? Model.Results.OrderByDescending(r => r.Total).ToList() : Model.Results;
 }
 

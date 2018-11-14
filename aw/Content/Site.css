@@ -2,16 +2,9 @@
     clear: both;
 }
 
-h1 {
-    margin: 0;
-}
-
-h2 {
-    color: #a7100c;
-}
-
 p {
     font-family: 'Raleway', sans-serif; /*www.google.com/fonts*/
+    font-size: 20px;
     color: #111;
     font-weight: bold;
 }
@@ -32,13 +25,18 @@ body {
 }
 
 h1 {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 800;
+}
+
+h2 {
+    color: #a7100c;
+    font-size: 22px;
 }
 
 @media screen and (min-width: 480px) {
     h1 {
-        font-size: 36px;
+        font-size: 26px;
     }
 }
 
@@ -68,6 +66,8 @@ h1 {
     text-decoration: none;
     color: #111;
     border-radius: 8px;
+    background-color: #f1f1f1;
+    font-weight: bold;
 }
 
     .quiz_btn:active {
@@ -95,7 +95,7 @@ input[type=text] {
 
 label {
     width: 100%;
-    /*padding-right: 14px;*/
+    background-color: #f7eae4;
     border-radius: 3px;
     border: 2px solid #a7100c;
     font-weight: bold;
@@ -128,7 +128,7 @@ input.radio:empty {
             left: 0;
             content: '';
             width: 2.5em;
-            background: #f1f1f1;
+            background: #dcbdb8;
             border-radius: 3px 0 0 3px;
         }
 
@@ -147,12 +147,12 @@ input.radio:hover:not(:checked) ~ label {
 input.radio:checked ~ label:before {
     content: '\2714';
     text-indent: .9em;
-    color: #9CE2AE;
-    background-color: #4DCB6D;
+    color: white;
+    background-color: #a7100c;
 }
 
 input.radio:checked ~ label {
-    color: #777;
+    color: #a7100c;
 }
 
 /* radio focus */
