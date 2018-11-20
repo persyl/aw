@@ -44,8 +44,8 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Denna svenska artist var med i melodifestivalen 2011. Vad kallade han sig?",
-                    alternatives = new List<string>() {"The Moniker", "The Trooper", "The Saint"},
+                    question = "The Moniker var med i melodifestivalen 2011. Vad heter han egentligen?",
+                    alternatives = new List<string>() {"Daniel Karlsson", "Linus Svensson", "Håkan Åström"},
                     correctAlternative = 0
                 },
                 new QuizQuestion()
@@ -56,8 +56,8 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Per växte upp med denna följetång på TV. Vad hette TV-serien?",
-                    alternatives = new List<string>() {"Dynastin", "Dallas", "Falcon Crest"},
+                    question = "Per växte upp med denna följetång Falcon Crest på TV. En bitsk huvudperson spelades av Sarah Jane Mayfield, vad hette hennes rollfigur?",
+                    alternatives = new List<string>() {"Annie Field", "Stephanie Lawrence", "Angela Channing"},
                     correctAlternative = 2
                 },
                 new QuizQuestion()
@@ -68,19 +68,19 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Vem är denna artist som sjunger - ingår i konceptalbumet Teaterkungen?",
-                    alternatives = new List<string>() {"Olle Ljungström", "Stefan Andersson", "Joakim Thåström"},
+                    question = "Artisten som sjunger heter Stefan Andersson och låten ingår i konceptalbumet Teaterkungen. Men med vilket låt blev han mest känd?",
+                    alternatives = new List<string>() {"Follow your leader", "Catch the Moon", "Nothing remains"},
                     correctAlternative = 1
                 },
                 new QuizQuestion()
                 {
-                    question = "Petter är inte bara en tuff utvecklingschef, det är också namnet på en grym rappare, men vilöket år är rapparen Petter född?",
+                    question = "Petter är inte bara namnet på en tuff utvecklingschef, det är också namnet på en grym rappare, men vilket år är rapparen Petter född?",
                     alternatives = new List<string>() {"1979", "1974", "1971"},
                     correctAlternative = 1
                 },
                 new QuizQuestion()
                 {
-                    question = "Denna grymma sångerska var också¨med i Så Mycket Bättre och förnyade denna gamla bit. Vad heter hon?",
+                    question = "Denna grymma sångerska var med i TV-programmet Så Mycket Bättre och förnyade denna gamla bit. Vad heter hon?",
                     alternatives = new List<string>() {"Sabina Ddumba", "Felicia Andersson", "Aurora De Luz"},
                     correctAlternative = 0
                 },
@@ -110,11 +110,22 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Bandnamnet?",
+                    question = "Vad heter bandet?",
                     alternatives = new List<string>() {"Weezer", "Oasis", "Limal"},
                     correctAlternative = 0
+                },
+                new QuizQuestion()
+                {
+                    question = "Dynazty gör här en cover på en låt som framfördes av Anna Bergendahl i melodifestivalen 2010, den vann och hamnade i eurovision Song Contest 2010? I vilken stad?",
+                    alternatives = new List<string>() {"Dubling", "Zagreb", "Oslo"},
+                    correctAlternative = 2
+                },
+                new QuizQuestion()
+                {
+                    question = "Robyn är en svensk världsartist utan dess like men vad man kanske inte känner till om hennes uppväxt är att hon...",
+                    alternatives = new List<string>() {"Har bara 3 tår", "Växte upp i ett kringresande teatersällskap", "Är utbildad dykinstruktör"},
+                    correctAlternative = 1
                 }
-
             }
         };
     }
