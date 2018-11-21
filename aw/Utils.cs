@@ -74,7 +74,7 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Petter är inte bara namnet på en tuff utvecklingschef, det är också namnet på en grym rappare, men vilket år är rapparen Petter född?",
+                    question = "Petter är inte bara namnet på en tuff utvecklingschef på Bonnier News, det är också namnet på en grym rappare, men vilket år är denne rapparen Petter född?",
                     alternatives = new List<string>() {"1979", "1974", "1971"},
                     correctAlternative = 1
                 },
@@ -124,6 +124,12 @@ namespace Aw
                 {
                     question = "Robyn är en svensk världsartist utan dess like men vad man kanske inte känner till om hennes uppväxt är att hon...",
                     alternatives = new List<string>() {"Har bara 3 tår", "Växte upp i ett kringresande teatersällskap", "Är utbildad dykinstruktör"},
+                    correctAlternative = 1
+                },
+                new QuizQuestion()
+                {
+                    question = "Vad heter bandet som framför denna fantastiska stillsamma ballad 'Bleed'?",
+                    alternatives = new List<string>() { "Mitzvah", "Meshuggah", "Metalisha"},
                     correctAlternative = 1
                 }
             }
