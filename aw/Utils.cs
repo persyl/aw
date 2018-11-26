@@ -14,9 +14,9 @@ namespace Aw
             {
                 new QuizQuestion()
                 {
-                    question = "Per har varit utvecklare på Dagens industri i 3 omgångar. När var första gången?",
-                    alternatives = new List<string>() {"Aug 1999 som konsult", "Sep 2000 som anställd", "Aug 2000 som konsult"},
-                    correctAlternative = 2
+                    question = "Jag börjar med att helt enkelt undra vad bandet heter?",
+                    alternatives = new List<string>() {"Basement Jaxx", "Chemical Brothers", "Fatboy Slim"},
+                    correctAlternative = 1
                 },
                 new QuizQuestion()
                 {
@@ -26,20 +26,20 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Per brygger eget öl hemma i köket som ni tyvärr ej får smaka ikväll. Vad brukar han kalla den?",
-                    alternatives = new List<string>() {"PIPA", "LIPA", "KIPA"},
-                    correctAlternative = 1
-                },
-                new QuizQuestion()
-                {
-                    question = "Per har varit med i musikvideon till denna låt. Vad heter artisten?",
-                    alternatives = new List<string>() {"Avicii", "Sebastian Ingrosso", "Alesso"},
+                    question = "Bandet har ett namn som låter som endast en person. Vilken land kommer bandet ifrån?",
+                    alternatives = new List<string>() {"Sverige", "Norge", "Danmark"},
                     correctAlternative = 2
                 },
                 new QuizQuestion()
                 {
-                    question = "Vad hette chefredaktören på Dagens industri under tiden som all utveckling var förlagd på bolaget Bink?",
-                    alternatives = new List<string>() {"Christer Mårdbrandt", "Linus Pålsson", "Peter Fellman"},
+                    question = "Per körde moped i denna musikvideo. Vad är artistens födelsenamn?",
+                    alternatives = new List<string>() {"Ryan", "David", "Alessandro"},
+                    correctAlternative = 2
+                },
+                new QuizQuestion()
+                {
+                    question = "På EN dag skrev sångaren i detta band en låt för en Hollywood-film. Låten spreds på nätet redan innan den släppts via en fildelningsmjukvara. Vilken var filmen?",
+                    alternatives = new List<string>() {"Napster", "Mission Impossible II", "Spindlemannen"},
                     correctAlternative = 1
                 },
                 new QuizQuestion()
@@ -56,7 +56,7 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Per växte upp med denna följetång Falcon Crest på TV. En bitsk huvudperson spelades av Sarah Jane Mayfield, vad hette hennes rollfigur?",
+                    question = "Per växte även upp med följetången Falcon Crest på TV. En bitsk huvudperson spelades av Sarah Jane Mayfield, vad hette hennes rollfigur?",
                     alternatives = new List<string>() {"Annie Field", "Stephanie Lawrence", "Angela Channing"},
                     correctAlternative = 2
                 },
@@ -104,25 +104,25 @@ namespace Aw
                 },
                 new QuizQuestion()
                 {
-                    question = "Svensk reggae när den är som bäst. Kaliffa Karlsson kör solo i denna låt men vilket band brukar han köra med?",
+                    question = "Svensk reggae när den är som bäst. Sångaren kör solo i denna låt men vilket band brukar han köra med?",
                     alternatives = new List<string>() {"Robyn", "Hoffmaestro", "General Knas"},
                     correctAlternative = 1
                 },
                 new QuizQuestion()
                 {
-                    question = "Vad heter bandet?",
-                    alternatives = new List<string>() {"Weezer", "Oasis", "Limal"},
+                    question = "Vad heter detta svenska band som satte rapmetal på kartan?",
+                    alternatives = new List<string>() {"Clawfinger", "Evergrey", "Bearfoot"},
                     correctAlternative = 0
                 },
                 new QuizQuestion()
                 {
                     question = "Dynazty gör här en cover på en låt som framfördes av Anna Bergendahl i melodifestivalen 2010, den vann och hamnade i eurovision Song Contest 2010? I vilken stad?",
-                    alternatives = new List<string>() {"Dubling", "Zagreb", "Oslo"},
+                    alternatives = new List<string>() {"Dublin", "Zagreb", "Oslo"},
                     correctAlternative = 2
                 },
                 new QuizQuestion()
                 {
-                    question = "Robyn är en svensk världsartist utan dess like men vad man kanske inte känner till om hennes uppväxt är att hon...",
+                    question = "Detta är en svensk världsartist utan dess like men vad man kanske inte känner till om hennes uppväxt är att hon...",
                     alternatives = new List<string>() {"Har bara 3 tår", "Växte upp i ett kringresande teatersällskap", "Är utbildad dykinstruktör"},
                     correctAlternative = 1
                 },
